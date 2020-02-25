@@ -225,6 +225,8 @@ class SimSoC(SoCSDRAM):
             ethmac = LiteEthMAC(phy=self.ethphy, dw=32,
                 interface  = "wishbone",
                 endianness = self.cpu.endianness)
+            print(self.cpu.endianess)
+            exit()
             if with_etherbone:
                 ethmac = ClockDomainsRenamer({"eth_tx": "ethphy_eth_tx", "eth_rx":  "ethphy_eth_rx"})(ethmac)
             self.submodules.ethmac = ethmac
